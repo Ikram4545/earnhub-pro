@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>EarnHub Pro — Watch Ads, Install Apps & Earn Daily Real Cash</title>
+
+    <!-- PWA & Theme Meta -->
+    <meta name="theme-color" content="#ffffff">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23059669'><path d='M13 2L3 14h9l-1 8 10-12h-9l1-8z'/></svg>">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        brand: {
+                            emerald: '#059669',
+                            emeraldLight: '#10b981',
+                            gold: '#d97706',
+                            goldLight: '#f59e0b',
+                            blue: '#2563eb',
+                            purple: '#7c3aed',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            color: #0f172a;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        .clean-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .clean-card:hover {
+            border-color: #cbd5e1;
+            box-shadow: 0 10px 25px -4px rgba(0, 0, 0, 0.08);
+        }
+
+        .gradient-emerald-btn {
+            background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            box-shadow: 0 4px 15px -2px rgba(5, 150, 105, 0.35);
+        }
+        .gradient-emerald-btn:hover {
+            filter: brightness(1.05);
+            transform: translateY(-1px);
+        }
+
+        .gradient-gold-btn {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            box-shadow: 0 4px 15px -2px rgba(217, 119, 6, 0.35);
+        }
+
+        .phone-mockup {
+            border: 10px solid #1e293b;
+            border-radius: 46px;
+            box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+        }
+
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-ticker {
+            display: inline-flex;
+            animation: ticker 25s linear infinite;
+        }
+        .animate-ticker:hover {
+            animation-play-state: paused;
+        }
+
+        .wheel-spin {
+            transition: transform 4s cubic-bezier(0.15, 0.95, 0.35, 1);
+        }
+
+        ::-webkit-scrollbar { width: 5px; height: 5px; }
+        ::-webkit-scrollbar-track { background: #f8fafc; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start bg-slate-50 selection:bg-emerald-500 selection:text-white">
+
+    <!-- ============================================================== -->
+    <!-- TOP TOOLBAR: VIEWPORT & MARKETING SWITCHER -->
+    <!-- ============================================================== -->
+    <header class="w-full bg-white border-b border-slate-200 sticky top-0 z-50 py-2.5 px-4 shadow-sm">
+        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+            
+            <!-- Logo & Brand -->
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="setMode('landing')">
+                <div class="w-9 h-9 rounded-xl gradient-emerald-btn flex items-center justify-center text-white font-black text-lg shadow-md">
+                    <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div>
+                    <div class="flex items-center space-x-2">
+                        <span class="font-extrabold text-sm tracking-tight text-slate-900">EarnHub <span class="text-emerald-600">PRO</span></span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2 py-0.5 rounded-full border border-emerald-200">Official</span>
+                        <span class="text-[9px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-0.5 rounded-full border border-amber-200">Instant Cashout</span>
+                    </div>
+                    <span class="text-[10px] text-slate-500 block -mt-0.5">Watch Ads, Install Apps & Real Cashout</span>
+                </div>
+            </div>
+
+            <!-- Viewport & 3-Pillar Switcher -->
+            <div class="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 text-xs font-bold">
+                <button onclick="setMode('landing')" id="btn-mode-landing" class="px-3 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm flex items-center space-x-1.5 transition">
+                    <i class="fa-solid fa-globe"></i>
+                    <span>🌟 Homepage</span>
+                </button>
+                <button onclick="setMode('articles')" id="btn-mode-articles" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1.5 transition">
+                    <i class="fa-solid fa-book-open"></i>
+                    <span>📚 SEO Guides</span>
+                </button>
+                <button onclick="setMode('mobile')" id="btn-mode-mobile" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1.5 transition">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                    <span>📱 Mobile App</span>
+                </button>
+                <button onclick="setMode('desktop')" id="btn-mode-desktop" class="px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1.5 transition">
+                    <i class="fa-solid fa-laptop"></i>
+                    <span>💻 Desktop</span>
+                </button>
+            </div>
+
+            <!-- Utilities -->
+            <div class="flex items-center space-x-3 text-xs">
+                <button onclick="toggleCurrency()" class="flex items-center space-x-1 font-bold text-slate-700 hover:text-emerald-600">
+                    <i class="fa-solid fa-repeat text-xs"></i>
+                    <span id="currBtnText">Currency: PKR</span>
+                </button>
+                <span class="text-slate-300">|</span>
+                <button onclick="launchAppDirect()" class="gradient-emerald-btn text-white px-3 py-1.5 rounded-lg font-bold text-xs shadow-sm flex items-center space-x-1">
+                    <span>Earn Now</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- LIVE EARNINGS MARQUEE TICKER -->
+    <div class="w-full bg-emerald-50/90 border-b border-emerald-100 py-1.5 overflow-hidden flex items-center text-xs">
+        <div class="px-3 flex items-center space-x-1.5 text-emerald-800 font-bold shrink-0 bg-emerald-100/90 z-10 border-r border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-600 animate-ping"></span>
+            <span class="text-[10px] uppercase tracking-wider">Live Verified Cashouts</span>
+        </div>
+        <div class="flex-1 overflow-hidden relative">
+            <div class="animate-ticker space-x-8 text-[11px] text-slate-700 font-medium">
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Hamza (Lahore)</strong> withdrew <strong class="text-emerald-700">Rs 500</strong> via Easypaisa <span class="text-slate-400 font-mono">(1m ago)</span></span>
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Zain (Karachi)</strong> completed Binance install <strong class="text-amber-600">+1,800 Coins (Rs 36)</strong> <span class="text-slate-400 font-mono">(3m ago)</span></span>
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Usman (Islamabad)</strong> withdrew <strong class="text-emerald-700">Rs 1,000</strong> via JazzCash <span class="text-slate-400 font-mono">(5m ago)</span></span>
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Bilal (Rawalpindi)</strong> cashed out <strong class="text-blue-600">$10.00 USDT</strong> via Binance <span class="text-slate-400 font-mono">(7m ago)</span></span>
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Ayesha (Faisalabad)</strong> spun Lucky Wheel <strong class="text-amber-600">+100 Coins (Rs 2)</strong> <span class="text-slate-400 font-mono">(9m ago)</span></span>
+                <span class="inline-flex items-center space-x-1.5"><strong class="text-slate-900">Tariq (Multan)</strong> withdrew <strong class="text-emerald-700">Rs 700</strong> via SadaPay <span class="text-slate-400 font-mono">(12m ago)</span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PILLAR 1: MARKETING HOMEPAGE (Freecash / Swagbucks Style) -->
+    <!-- ============================================================== -->
+    <div id="landingView" class="w-full max-w-6xl mx-auto px-4 py-8 space-y-12">
+        
+        <!-- Hero Section -->
+        <section class="text-center space-y-6 pt-4 pb-2">
+            <div class="inline-flex items-center space-x-2 bg-emerald-50 border border-emerald-200 px-4 py-1.5 rounded-full text-emerald-800 text-xs font-bold shadow-sm">
+                <i class="fa-solid fa-fire text-amber-500"></i>
+                <span>Over Rs 45,00,000+ Paid Out to 18,200+ Active Users in Pakistan</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-tight">
+                Watch High-Paying Ads, Install Apps &amp; <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-500">Earn Daily Real Cash</span> in Pakistan
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                EarnHub Pro connects you with global ad networks (Adsterra, Monetag, CPALead). Complete 15-second rewarded tasks and withdraw your earnings directly to <strong>Easypaisa, JazzCash, SadaPay</strong> or <strong>Binance USDT</strong>.
+            </p>
+
+            <div class="flex flex-wrap justify-center items-center gap-3 pt-2">
+                <button onclick="launchAppDirect()" class="gradient-emerald-btn text-white px-8 py-4 rounded-2xl font-black text-sm shadow-xl flex items-center space-x-2 active:scale-95 transition">
+                    <span>🚀 Launch Web App &amp; Start Earning</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+                <button onclick="scrollToCalculator()" class="bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 px-6 py-4 rounded-2xl font-bold text-sm shadow-sm transition">
+                    <i class="fa-solid fa-calculator text-emerald-600 mr-1.5"></i>
+                    <span>Calculate Your Earnings</span>
+                </button>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="flex flex-wrap justify-center items-center gap-6 pt-4 text-xs font-bold text-slate-500">
+                <span class="flex items-center space-x-1.5"><i class="fa-solid fa-check-circle text-emerald-600"></i><span>100% Free • No Investment</span></span>
+                <span class="flex items-center space-x-1.5"><i class="fa-solid fa-bolt text-amber-500"></i><span>Instant Payouts in 15 Minutes</span></span>
+                <span class="flex items-center space-x-1.5"><i class="fa-solid fa-shield text-blue-600"></i><span>Verified Adsterra &amp; Monetag Partner</span></span>
+            </div>
+        </section>
+
+        <!-- Live Interactive Earning Calculator -->
+        <section id="earningCalculatorSection" class="clean-card rounded-3xl p-6 sm:p-10 max-w-3xl mx-auto space-y-6 border-emerald-100 bg-gradient-to-b from-white to-slate-50">
+            <div class="text-center space-y-1">
+                <span class="text-[11px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Transparent Math</span>
+                <h2 class="text-xl sm:text-2xl font-black text-slate-900">How Much Can You Earn Daily?</h2>
+                <p class="text-xs text-slate-500">Adjust the sliders below to calculate your estimated monthly income in PKR</p>
+            </div>
+
+            <div class="space-y-5 pt-2">
+                <!-- Slider 1: Ads per day -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-700"><i class="fa-solid fa-circle-play text-emerald-600 mr-1"></i> Rewarded Ads Watched Per Day:</span>
+                        <span class="font-mono text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200" id="calcAdsVal">25 Ads / Day</span>
+                    </div>
+                    <input type="range" id="calcAdsSlider" min="5" max="100" step="5" value="25" oninput="updateCalculator()" class="w-full accent-emerald-600 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-slate-400">
+                        <span>5 Ads</span>
+                        <span>50 Ads</span>
+                        <span>100 Ads (Max Quota)</span>
+                    </div>
+                </div>
+
+                <!-- Slider 2: Apps Installed per day -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center text-xs font-bold">
+                        <span class="text-slate-700"><i class="fa-solid fa-download text-blue-600 mr-1"></i> CPI Apps Installed Per Day:</span>
+                        <span class="font-mono text-blue-700 bg-blue-50 px-2.5 py-1 rounded-lg border border-blue-200" id="calcAppsVal">2 Apps / Day</span>
+                    </div>
+                    <input type="range" id="calcAppsSlider" min="0" max="10" step="1" value="2" oninput="updateCalculator()" class="w-full accent-blue-600 cursor-pointer">
+                    <div class="flex justify-between text-[10px] text-slate-400">
+                        <span>0 Apps</span>
+                        <span>5 Apps</span>
+                        <span>10 Apps</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Result Box -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-900 text-white rounded-2xl p-5 shadow-lg">
+                <div>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Estimated Daily Cash:</span>
+                    <div class="text-2xl font-black text-emerald-400 font-mono mt-0.5" id="calcDailyPkr">Rs 110 PKR</div>
+                    <span class="text-[11px] text-slate-400" id="calcDailyUsd">~$0.40 USD / Day</span>
+                </div>
+                <div class="sm:border-l sm:border-slate-800 sm:pl-4">
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider block font-bold">Estimated Monthly Income:</span>
+                    <div class="text-2xl font-black text-amber-400 font-mono mt-0.5" id="calcMonthlyPkr">Rs 3,300 PKR</div>
+                    <span class="text-[11px] text-emerald-400 font-bold">Direct to Easypaisa / JazzCash</span>
+                </div>
+            </div>
+
+            <div class="text-center pt-2">
+                <button onclick="launchAppDirect()" class="gradient-emerald-btn text-white w-full py-3.5 rounded-xl font-bold text-xs shadow-md">
+                    Claim Your First 1,000 Coins (Rs 20) Now
+                </button>
+            </div>
+        </section>
+
+        <!-- 3-Step Simple Workflow -->
+        <section class="space-y-6">
+            <div class="text-center space-y-1">
+                <span class="text-[11px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">How It Works</span>
+                <h2 class="text-2xl font-black text-slate-900">Earn Cash in 3 Simple Steps</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="clean-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-2xl mx-auto shadow-sm">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-slate-900">1. Watch 15s Ads &amp; Spin</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Choose from 10 high-speed ad servers (Adsterra, Monetag). Watch for 15 seconds or spin the Lucky Wheel to collect coins.
+                    </p>
+                </div>
+
+                <div class="clean-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center text-2xl mx-auto shadow-sm">
+                        <i class="fa-solid fa-mobile-screen-button"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-slate-900">2. Install Sponsored Apps</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Download high-paying apps like Binance, Alibaba, or Games via CPALead and Monlix. Earn +500 to +2,000 coins per task!
+                    </p>
+                </div>
+
+                <div class="clean-card rounded-3xl p-6 text-center space-y-3">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-2xl mx-auto shadow-sm">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <h3 class="font-bold text-base text-slate-900">3. Instant Withdrawal</h3>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        Convert your coins into real PKR (100 Coins = Rs 2.00). Withdraw starting from Rs 500 directly to Easypaisa or JazzCash.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Proofs Showcase -->
+        <section class="clean-card rounded-3xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-wrap justify-between items-center gap-2">
+                <div>
+                    <h3 class="text-lg font-black text-slate-900">Recent Payment Slips</h3>
+                    <span class="text-xs text-slate-500">Live verified user cashouts processed within the last 24 hours</span>
+                </div>
+                <span class="text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1 rounded-full font-bold flex items-center">
+                    <i class="fa-solid fa-circle-check mr-1.5"></i> 100% Payout Guarantee
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+                <!-- Slip 1 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <strong class="text-emerald-700 font-bold">Easypaisa Transfer</strong>
+                        <span class="bg-emerald-100 text-emerald-800 text-[9px] font-black px-2 py-0.5 rounded-full">Success</span>
+                    </div>
+                    <div class="text-xl font-black text-slate-900 font-mono">Rs 500.00</div>
+                    <div class="text-[10px] text-slate-500 space-y-0.5">
+                        <div>To: <strong>0300-8472*** (Ali R.)</strong></div>
+                        <div>TxID: <span class="font-mono">EP-991823714</span></div>
+                        <div>Status: Dispatched in 14 mins</div>
+                    </div>
+                </div>
+
+                <!-- Slip 2 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <strong class="text-rose-700 font-bold">JazzCash Transfer</strong>
+                        <span class="bg-emerald-100 text-emerald-800 text-[9px] font-black px-2 py-0.5 rounded-full">Success</span>
+                    </div>
+                    <div class="text-xl font-black text-slate-900 font-mono">Rs 1,000.00</div>
+                    <div class="text-[10px] text-slate-500 space-y-0.5">
+                        <div>To: <strong>0321-4910*** (Usman K.)</strong></div>
+                        <div>TxID: <span class="font-mono">JC-448102910</span></div>
+                        <div>Status: Dispatched in 8 mins</div>
+                    </div>
+                </div>
+
+                <!-- Slip 3 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 space-y-2">
+                    <div class="flex justify-between items-center">
+                        <strong class="text-amber-700 font-bold">Binance USDT (TRC20)</strong>
+                        <span class="bg-emerald-100 text-emerald-800 text-[9px] font-black px-2 py-0.5 rounded-full">Success</span>
+                    </div>
+                    <div class="text-xl font-black text-slate-900 font-mono">$10.00 USDT</div>
+                    <div class="text-[10px] text-slate-500 space-y-0.5">
+                        <div>Pay ID: <strong>491820194 (Bilal M.)</strong></div>
+                        <div>Hash: <span class="font-mono">0x49f...8a12</span></div>
+                        <div>Status: Instant On-Chain</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO Article Previews in Homepage -->
+        <section class="space-y-6">
+            <div class="flex justify-between items-end">
+                <div>
+                    <span class="text-[11px] font-black uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Knowledge Hub</span>
+                    <h2 class="text-2xl font-black text-slate-900 mt-1">Earning Guides &amp; SEO Articles</h2>
+                </div>
+                <button onclick="setMode('articles')" class="text-xs text-emerald-600 font-bold hover:underline flex items-center space-x-1">
+                    <span>View All Articles</span>
+                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+                <!-- Article 1 -->
+                <article class="clean-card rounded-3xl p-5 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="bg-emerald-50 text-emerald-700 font-bold px-2 py-0.5 rounded text-[10px] border border-emerald-200">Ad Watching Strategy</span>
+                        <h3 class="font-bold text-sm text-slate-900 leading-snug">
+                            Ghar Baithe Mobile Se Rozana Rs 500 - Rs 1,500 Kaise Kamayein? (2026 Complete Guide)
+                        </h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Agar aapke paas 4G smartphone aur internet hai to aap rozana 1-2 ghante ads dekh kar aur micro tasks complete karke ba-asani mahana Rs 15,000 se Rs 35,000 kama sakte hain...
+                        </p>
+                    </div>
+                    <button onclick="openArticleModal(1)" class="text-emerald-600 hover:text-emerald-700 font-bold text-xs pt-2 flex items-center space-x-1">
+                        <span>Read Full Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="clean-card rounded-3xl p-5 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="bg-blue-50 text-blue-700 font-bold px-2 py-0.5 rounded text-[10px] border border-blue-200">Withdrawal Tutorial</span>
+                        <h3 class="font-bold text-sm text-slate-900 leading-snug">
+                            Easypaisa aur JazzCash Par Instant Withdrawal Kaise Hasil Karein?
+                        </h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            EarnHub Pro ka minimum cashout sirf 25,000 Coins (Rs 500 PKR) hai. Zero fee ke sath 15 minute ke andar mobile wallet mein paise receive karne ka tareeqa...
+                        </p>
+                    </div>
+                    <button onclick="openArticleModal(2)" class="text-blue-600 hover:text-blue-700 font-bold text-xs pt-2 flex items-center space-x-1">
+                        <span>Read Full Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="clean-card rounded-3xl p-5 space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="bg-amber-50 text-amber-700 font-bold px-2 py-0.5 rounded text-[10px] border border-amber-200">CPI High Earning</span>
+                        <h3 class="font-bold text-sm text-slate-900 leading-snug">
+                            High-Paying CPI App Tasks: Sirf 2 Apps Install Karke Rs 300 Kaise Kamayein?
+                        </h3>
+                        <p class="text-[11px] text-slate-500 leading-relaxed">
+                            Video ads ke muqablay mein app install karne par 10 guna zyada coins milte hain. CPALead aur Monlix ke offers ko 2 minute mein verify karwane ka formula...
+                        </p>
+                    </div>
+                    <button onclick="openArticleModal(4)" class="text-amber-600 hover:text-amber-700 font-bold text-xs pt-2 flex items-center space-x-1">
+                        <span>Read Full Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </article>
+            </div>
+        </section>
+
+        <!-- Final CTA Banner -->
+        <section class="bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-3xl p-8 sm:p-12 text-center space-y-4 shadow-xl">
+            <h2 class="text-2xl sm:text-3xl font-black">Ready to Start Earning Today?</h2>
+            <p class="text-xs sm:text-sm text-emerald-100 max-w-xl mx-auto">
+                No sign-up fee, no investment required. Claim your 1,000 bonus coins and withdraw whenever you hit Rs 500!
+            </p>
+            <button onclick="launchAppDirect()" class="bg-white text-emerald-800 hover:bg-slate-100 font-black text-sm px-8 py-3.5 rounded-2xl shadow-lg active:scale-95 transition">
+                🚀 Open EarnHub Pro Web App
+            </button>
+        </section>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PILLAR 3: DEDICATED SEO ARTICLES HUB (Google Traffic Engine) -->
+    <!-- ============================================================== -->
+    <div id="articlesView" class="w-full max-w-5xl mx-auto px-4 py-8 space-y-8 hidden">
+        
+        <!-- Header & Search -->
+        <div class="text-center space-y-3 pt-2">
+            <span class="text-[11px] font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">Knowledge Hub &amp; SEO Guides</span>
+            <h1 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">EarnHub Pro Online Earning Library</h1>
+            <p class="text-xs sm:text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+                Step-by-step guides, payment proof tutorials, and expert strategies to maximize your daily earnings from mobile and desktop.
+            </p>
+
+            <!-- Search & Filters -->
+            <div class="max-w-md mx-auto pt-2">
+                <div class="relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-xs"></i>
+                    <input type="text" id="articleSearchInput" onkeyup="filterArticlesList()" placeholder="Search earning guides (e.g. Easypaisa, CPM, Tasks)..." class="w-full bg-white border border-slate-200 rounded-2xl pl-9 pr-4 py-2.5 text-xs text-slate-800 shadow-sm focus:outline-none focus:border-emerald-500">
+                </div>
+            </div>
+        </div>
+
+        <!-- In-Article Sponsored Banner -->
+        <div class="w-full bg-slate-100 border border-dashed border-slate-300 rounded-2xl p-2.5 flex items-center justify-between text-xs text-slate-500 px-4">
+            <span class="font-bold flex items-center"><i class="fa-solid fa-bolt text-amber-500 mr-2"></i> Sponsored Impression Ad Slot (320x50 / 728x90)</span>
+            <span class="text-[10px] bg-white border border-slate-200 px-2 py-0.5 rounded font-mono font-bold">Adsterra Banner</span>
+        </div>
+
+        <!-- 4 Detailed Article Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="articlesCardsGrid">
+            
+            <!-- Article Card 1 -->
+            <div class="clean-card rounded-3xl p-6 space-y-4 flex flex-col justify-between article-item" data-keywords="daily earn 1000 ghar baithe mobile ad watching routine">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="bg-emerald-50 text-emerald-700 font-bold px-2.5 py-1 rounded-full border border-emerald-200">Ad Watching Strategy</span>
+                        <span>4 min read • Updated Today</span>
+                    </div>
+                    <h2 class="text-base font-black text-slate-900 leading-snug hover:text-emerald-600 cursor-pointer" onclick="openArticleModal(1)">
+                        Ghar Baithe Mobile Se Rozana Rs 500 - Rs 1,500 Kaise Kamayein? (2026 Complete Guide)
+                    </h2>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Agar aapke paas ek 4G smartphone aur internet hai to aap rozana 150 rewarded ads dekh kar aur 2 CPI apps install karke mahana Rs 15,000 se Rs 35,000 ba-asani kaise kama sakte hain? Mukammal verified blueprint.
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                    <div class="flex items-center space-x-2 text-xs text-slate-500">
+                        <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-[10px]">MB</div>
+                        <span class="font-bold text-[11px]">Muhammad Bilal</span>
+                    </div>
+                    <button onclick="openArticleModal(1)" class="gradient-emerald-btn text-white px-3.5 py-1.5 rounded-xl font-bold text-xs shadow-sm flex items-center space-x-1">
+                        <span>Read Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Article Card 2 -->
+            <div class="clean-card rounded-3xl p-6 space-y-4 flex flex-col justify-between article-item" data-keywords="easypaisa jazzcash withdrawal cashout 500 pkr instant transfer">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="bg-blue-50 text-blue-700 font-bold px-2.5 py-1 rounded-full border border-blue-200">Withdrawal Tutorial</span>
+                        <span>3 min read • Finance</span>
+                    </div>
+                    <h2 class="text-base font-black text-slate-900 leading-snug hover:text-blue-600 cursor-pointer" onclick="openArticleModal(2)">
+                        Easypaisa aur JazzCash Par Instant Withdrawal Kaise Hasil Karein? (Step-by-Step)
+                    </h2>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        EarnHub Pro ka minimum cashout sirf 25,000 Coins (Rs 500 PKR) hai. Is guide mein jaanein ke kaise zero deduction fee ke sath 15 minute ke andar apne Easypaisa ya JazzCash number par payment receive karein.
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                    <div class="flex items-center space-x-2 text-xs text-slate-500">
+                        <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-[10px]">AR</div>
+                        <span class="font-bold text-[11px]">Ali Raza (Finance)</span>
+                    </div>
+                    <button onclick="openArticleModal(2)" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-1.5 rounded-xl font-bold text-xs shadow-sm flex items-center space-x-1">
+                        <span>Read Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Article Card 3 -->
+            <div class="clean-card rounded-3xl p-6 space-y-4 flex flex-col justify-between article-item" data-keywords="top 5 online earning apps pakistan real no investment freecash swagbucks">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="bg-purple-50 text-purple-700 font-bold px-2.5 py-1 rounded-full border border-purple-200">Comparison &amp; Reviews</span>
+                        <span>5 min read • Rankings</span>
+                    </div>
+                    <h2 class="text-base font-black text-slate-900 leading-snug hover:text-purple-600 cursor-pointer" onclick="openArticleModal(3)">
+                        Top 5 Real Online Earning Apps in Pakistan 2026 (No Investment Required)
+                    </h2>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Freecash, Swagbucks, EarnHub Pro, Toloka aur ClipClaps ka sacha comparison. Jaanein kaun si app asal mein Pakistan mein Easypaisa deti hai aur kin se bachna zaroori hai.
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                    <div class="flex items-center space-x-2 text-xs text-slate-500">
+                        <div class="w-6 h-6 rounded-full bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-[10px]">ET</div>
+                        <span class="font-bold text-[11px]">Editorial Tech Team</span>
+                    </div>
+                    <button onclick="openArticleModal(3)" class="bg-purple-600 hover:bg-purple-700 text-white px-3.5 py-1.5 rounded-xl font-bold text-xs shadow-sm flex items-center space-x-1">
+                        <span>Read Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Article Card 4 -->
+            <div class="clean-card rounded-3xl p-6 space-y-4 flex flex-col justify-between article-item" data-keywords="cpa cpi high paying tasks binance cpalead monlix 300 rs 2 apps">
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center text-[10px] text-slate-400">
+                        <span class="bg-amber-50 text-amber-700 font-bold px-2.5 py-1 rounded-full border border-amber-200">High-Payer Secret</span>
+                        <span>4 min read • Advanced</span>
+                    </div>
+                    <h2 class="text-base font-black text-slate-900 leading-snug hover:text-amber-600 cursor-pointer" onclick="openArticleModal(4)">
+                        High-Paying CPI Tasks: Sirf 2 Apps Install Karke Rs 300 Kaise Kamayein?
+                    </h2>
+                    <p class="text-xs text-slate-600 leading-relaxed">
+                        Video ad ke muqablay mein app install karne par 10 guna zyada coins milte hain. CPALead aur Monlix ke high-paying offers (Binance, Alibaba, Opera GX) ko 2 minute mein verify karwane ka secret formula.
+                    </p>
+                </div>
+                <div class="pt-2 border-t border-slate-100 flex justify-between items-center">
+                    <div class="flex items-center space-x-2 text-xs text-slate-500">
+                        <div class="w-6 h-6 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-[10px]">ZH</div>
+                        <span class="font-bold text-[11px]">Zain Hassan (CPA Lead)</span>
+                    </div>
+                    <button onclick="openArticleModal(4)" class="gradient-gold-btn text-white px-3.5 py-1.5 rounded-xl font-bold text-xs shadow-sm flex items-center space-x-1">
+                        <span>Read Guide</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sticky Bottom CTA in Articles Hub -->
+        <div class="clean-card rounded-3xl p-6 bg-gradient-to-r from-emerald-50 to-teal-50 border-emerald-200 flex flex-wrap justify-between items-center gap-4">
+            <div>
+                <h3 class="font-black text-base text-slate-900">Finished Reading? Start Earning Right Now!</h3>
+                <p class="text-xs text-slate-600">Join 18,200+ active members and claim your 1,000 bonus coins.</p>
+            </div>
+            <button onclick="launchAppDirect()" class="gradient-emerald-btn text-white px-6 py-3 rounded-2xl font-black text-xs shadow-lg active:scale-95 transition">
+                🚀 Launch Web App Now
+            </button>
+        </div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- PILLAR 2: APPLICATION CONTAINER (Phone Mockup / Desktop Layout) -->
+    <!-- ============================================================== -->
+    <div id="viewportWrapper" class="w-full flex justify-center py-6 px-2 sm:px-4 hidden">
+        
+        <div id="appShell" class="w-full max-w-md phone-mockup bg-white min-h-[860px] relative flex flex-col overflow-hidden shadow-2xl transition-all duration-300">
+
+            <!-- PHONE STATUS BAR -->
+            <div id="phoneStatusBar" class="w-full bg-white pt-2 px-6 pb-1 flex justify-between items-center text-[11px] text-slate-500 font-bold select-none border-b border-slate-100">
+                <span id="liveClock" class="font-mono text-slate-900">12:30</span>
+                <div class="w-28 h-5 bg-slate-900 rounded-b-xl mx-auto -mt-2 flex items-center justify-center">
+                    <span class="w-2.5 h-2.5 rounded-full bg-slate-800 border border-slate-700"></span>
+                </div>
+                <div class="flex items-center space-x-1.5 text-slate-700">
+                    <i class="fa-solid fa-signal text-[10px]"></i>
+                    <i class="fa-solid fa-wifi text-[10px]"></i>
+                    <i class="fa-solid fa-battery-full text-xs text-emerald-600"></i>
+                </div>
+            </div>
+
+            <!-- APP STICKY HEADER -->
+            <header class="w-full bg-white/95 backdrop-blur-md px-4 py-3 flex justify-between items-center border-b border-slate-200 z-30 sticky top-0">
+                <!-- User Profile Badge -->
+                <div class="flex items-center space-x-2.5">
+                    <div class="relative">
+                        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-400 flex items-center justify-center font-bold text-white shadow-md text-base">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <span class="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-emerald-500 border-2 border-white rounded-full"></span>
+                    </div>
+                    <div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="font-bold text-xs text-slate-900">Ali_Pak786</span>
+                            <span class="bg-amber-100 text-amber-800 text-[9px] font-black px-1.5 py-0.2 rounded font-mono">VIP 1</span>
+                        </div>
+                        <span class="text-[10px] text-slate-500 block">Affiliate ID: <strong class="text-emerald-700 font-mono">EHP-8819</strong></span>
+                    </div>
+                </div>
+
+                <!-- Wallet Pill -->
+                <div onclick="toggleCurrency()" class="cursor-pointer bg-slate-50 hover:bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-2xl flex items-center space-x-2 transition shadow-sm active:scale-95">
+                    <div class="w-6 h-6 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-600 text-xs">
+                        <i class="fa-solid fa-coins"></i>
+                    </div>
+                    <div class="text-right">
+                        <div class="font-black text-xs text-slate-900 font-mono" id="headerCoins">1,000</div>
+                        <div class="text-[10px] text-emerald-600 font-bold" id="headerCash">Rs 20.00 PKR</div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 320x50 SPONSORED BANNER CONTAINER -->
+            <div class="px-4 pt-3 pb-1">
+                <div id="topBannerBox" class="w-full bg-slate-50 border border-dashed border-emerald-300 rounded-2xl min-h-[55px] flex items-center justify-between px-3 text-xs text-slate-600 group hover:border-emerald-500 transition">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+                        <div>
+                            <span class="text-slate-900 font-bold text-xs block">Adsterra / Monetag 320x50 Live Banner Slot</span>
+                            <span class="text-[10px] text-slate-500">Auto-refreshing sponsored impression banner</span>
+                        </div>
+                    </div>
+                    <span class="text-[9px] bg-white border border-slate-200 px-2 py-0.5 rounded font-mono font-bold text-slate-500">AD #101</span>
+                </div>
+            </div>
+
+            <!-- TOAST NOTIFICATION -->
+            <div id="liveToast" class="hidden mx-4 my-2 p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center justify-between shadow-lg transition">
+                <div class="flex items-center space-x-2">
+                    <i class="fa-solid fa-circle-check text-emerald-600 text-base"></i>
+                    <span id="toastMsg" class="font-bold">Coins added to your wallet!</span>
+                </div>
+                <button onclick="hideToast()" class="text-slate-400 hover:text-slate-700"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <!-- TAB CONTENT -->
+            <main class="flex-1 p-4 pb-24 space-y-4">
+
+                <!-- ============================================================== -->
+                <!-- TAB 1: WATCH ADS & INTERACTIVE GAMES -->
+                <!-- ============================================================== -->
+                <section id="tab-ads" class="space-y-4">
+                    
+                    <!-- Daily Quota Card -->
+                    <div class="bg-gradient-to-br from-emerald-600 to-teal-700 text-white rounded-3xl p-5 shadow-lg relative overflow-hidden">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-[10px] font-black uppercase tracking-wider bg-black/20 text-emerald-100 px-3 py-1 rounded-full flex items-center">
+                                <i class="fa-solid fa-chart-simple mr-1.5 text-amber-300"></i> Daily Ad Quota
+                            </span>
+                            <span class="text-xs font-black bg-white/20 px-3 py-0.5 rounded-full font-mono">
+                                <span id="adsCount">0</span> / 150 Ads
+                            </span>
+                        </div>
+
+                        <h2 class="text-lg font-black tracking-tight mt-1">Multi-Network Ad Servers</h2>
+                        <p class="text-xs text-emerald-100/90 mt-1 leading-relaxed">
+                            Watch 15-second rewarded ads with anti-cheat tab-focus protection. Earn +15 to +25 Coins instantly!
+                        </p>
+
+                        <div class="space-y-1 mt-3">
+                            <div class="w-full bg-black/20 rounded-full h-2.5 p-0.5">
+                                <div id="adProgressBar" class="bg-amber-400 h-1.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+                            </div>
+                            <div class="flex justify-between text-[10px] text-emerald-100 font-semibold pt-0.5">
+                                <span>0 Views</span>
+                                <span>Milestone: 50 (+100 🪙) • 100 (+250 🪙)</span>
+                                <span>150 Views</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- INTERACTIVE MINI-GAMES BANNER -->
+                    <div class="grid grid-cols-2 gap-3">
+                        <!-- Lucky Spin Card -->
+                        <div onclick="openSpinModal()" class="cursor-pointer clean-card p-3.5 rounded-2xl border-amber-200 bg-gradient-to-br from-amber-50/60 to-white hover:border-amber-400 transition flex flex-col justify-between group active:scale-95">
+                            <div>
+                                <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-lg mb-2 shadow-sm group-hover:rotate-45 transition duration-300">
+                                    <i class="fa-solid fa-dharmachakra"></i>
+                                </div>
+                                <h3 class="font-black text-xs text-slate-900">🎡 Lucky Spin</h3>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Watch ad to spin &amp; win up to +100 Coins!</p>
+                            </div>
+                            <span class="mt-2 text-[10px] font-bold text-amber-700 bg-amber-100/80 px-2 py-0.5 rounded-lg text-center">
+                                Spin Now ➔
+                            </span>
+                        </div>
+
+                        <!-- Scratch Card -->
+                        <div onclick="openScratchModal()" class="cursor-pointer clean-card p-3.5 rounded-2xl border-emerald-200 bg-gradient-to-br from-emerald-50/60 to-white hover:border-emerald-400 transition flex flex-col justify-between group active:scale-95">
+                            <div>
+                                <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-lg mb-2 shadow-sm group-hover:scale-110 transition duration-300">
+                                    <i class="fa-solid fa-ticket-simple"></i>
+                                </div>
+                                <h3 class="font-black text-xs text-slate-900">🎟️ Scratch &amp; Win</h3>
+                                <p class="text-[10px] text-slate-500 mt-0.5">Watch ad to unlock lucky scratch card!</p>
+                            </div>
+                            <span class="mt-2 text-[10px] font-bold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-lg text-center">
+                                Scratch ➔
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Ad Servers Header -->
+                    <div class="flex justify-between items-center px-1 pt-1">
+                        <span class="text-xs font-bold text-slate-700 uppercase tracking-wider">Active Ad Servers (10 Networks)</span>
+                        <span class="text-[10px] bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded-full font-bold">
+                            ● 10 Servers Live
+                        </span>
+                    </div>
+
+                    <!-- 2-Column Grid of 10 Ad Servers -->
+                    <div class="grid grid-cols-2 gap-3" id="adServersGrid">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+
+                    <!-- Anti-Cheat Info Box -->
+                    <div class="clean-card rounded-2xl p-3.5 flex items-start space-x-3 text-xs text-slate-600">
+                        <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0 text-base">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div>
+                            <strong class="text-slate-900 block font-bold">Anti-Cheat Tab Focus Protected</strong>
+                            Timer automatically pauses if you switch tabs or minimize. Keeps accounts 100% safe from advertiser fraud bans.
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- TAB 2: CPI AFFILIATE APPS & OFFERWALLS -->
+                <!-- ============================================================== -->
+                <section id="tab-apps" class="space-y-4 hidden">
+                    
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 text-white rounded-3xl p-5 shadow-lg">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[10px] font-black uppercase tracking-wider bg-black/20 text-blue-100 px-3 py-1 rounded-full">
+                                <i class="fa-solid fa-coins mr-1 text-amber-300"></i> High-Payer CPA Offers
+                            </span>
+                            <span class="text-xs font-black text-amber-300">+500 to +2,000 Coins / App</span>
+                        </div>
+
+                        <h2 class="text-lg font-black tracking-tight mt-1">App Install &amp; Task Engine</h2>
+                        <p class="text-xs text-blue-100/90 mt-1 leading-relaxed">
+                            Install sponsored partner applications and complete tasks. Real CPA Affiliate payouts credited via S2S Postback.
+                        </p>
+                    </div>
+
+                    <!-- Subtabs -->
+                    <div class="flex bg-slate-100 p-1 rounded-2xl border border-slate-200 text-xs font-bold">
+                        <button onclick="switchAppTab('direct')" id="btn-sub-direct" class="flex-1 py-2 rounded-xl bg-white text-slate-900 shadow-sm transition">
+                            Direct App Installs
+                        </button>
+                        <button onclick="switchAppTab('walls')" id="btn-sub-walls" class="flex-1 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition">
+                            Partner Offerwalls
+                        </button>
+                    </div>
+
+                    <!-- Direct Apps List -->
+                    <div id="view-direct-apps" class="space-y-3">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Offerwall Embed View -->
+                    <div id="view-offerwalls" class="space-y-3 hidden">
+                        <div class="clean-card p-4 rounded-2xl space-y-3">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="font-bold text-xs text-slate-900">Monlix &amp; CPALead Live Offerwall</h4>
+                                    <span class="text-[10px] text-slate-500">Iframe integration with automatic Postback URL verification</span>
+                                </div>
+                                <span class="text-[9px] bg-blue-50 text-blue-700 font-bold px-2 py-0.5 rounded border border-blue-200">S2S LIVE</span>
+                            </div>
+
+                            <div class="w-full bg-slate-950 rounded-2xl p-4 text-white text-xs font-mono space-y-2">
+                                <div class="text-emerald-400 font-bold">Postback Webhook Endpoint:</div>
+                                <div class="bg-slate-900 p-2.5 rounded-xl text-[10px] text-slate-300 break-all border border-slate-800">
+                                    https://yourdomain.com/api/postback.php?user_id={subid}&amp;reward={payout}&amp;secret=ehp_live_99a
+                                </div>
+                                <button onclick="simulatePostback()" class="w-full py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold transition">
+                                    Simulate Incoming S2S Postback (+1,200 Coins)
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- TAB 3: REFER & EARN -->
+                <!-- ============================================================== -->
+                <section id="tab-refer" class="space-y-4 hidden">
+                    
+                    <div class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white rounded-3xl p-5 shadow-lg text-center space-y-2">
+                        <div class="w-12 h-12 rounded-2xl bg-white/20 text-white flex items-center justify-center text-xl mx-auto shadow-sm">
+                            <i class="fa-solid fa-gift"></i>
+                        </div>
+                        <h2 class="text-lg font-black tracking-tight">10% Lifetime Commission</h2>
+                        <p class="text-xs text-purple-100 max-w-xs mx-auto leading-relaxed">
+                            Invite friends to EarnHub Pro. Earn a 10% lifetime commission on every ad they watch and every app they download!
+                        </p>
+                    </div>
+
+                    <div class="clean-card rounded-3xl p-5 space-y-3">
+                        <label class="text-xs font-bold text-slate-700 block">Your Unique Referral Link:</label>
+                        <div class="flex items-center space-x-2">
+                            <input type="text" id="refLink" readonly value="https://earnhub.omniwiremedia.com/?ref=EHP-8819" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 font-mono font-bold">
+                            <button onclick="copyLink()" class="gradient-emerald-btn text-white px-4 py-2.5 rounded-xl font-bold text-xs shrink-0 shadow">
+                                Copy
+                            </button>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 pt-1">
+                            <button onclick="share('whatsapp')" class="py-2.5 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold text-xs flex items-center justify-center space-x-1.5 hover:bg-emerald-100 transition">
+                                <i class="fa-brands fa-whatsapp text-sm"></i>
+                                <span>WhatsApp Share</span>
+                            </button>
+                            <button onclick="share('telegram')" class="py-2.5 rounded-xl bg-blue-50 text-blue-700 border border-blue-200 font-bold text-xs flex items-center justify-center space-x-1.5 hover:bg-blue-100 transition">
+                                <i class="fa-brands fa-telegram text-sm"></i>
+                                <span>Telegram Share</span>
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- TAB 4: WALLET & CASHOUT -->
+                <!-- ============================================================== -->
+                <section id="tab-wallet" class="space-y-4 hidden">
+                    
+                    <!-- Balance Summary Card -->
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-5 shadow-xl space-y-4">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Total Available Balance</span>
+                                <div class="text-3xl font-black font-mono text-amber-400 mt-1 flex items-center space-x-2">
+                                    <span id="walletCoinsDisplay">1,000</span>
+                                    <span class="text-xs text-slate-400 font-sans font-bold">Coins</span>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Estimated Value</span>
+                                <div class="text-lg font-black text-emerald-400 font-mono" id="walletPkrDisplay">Rs 20.00 PKR</div>
+                                <div class="text-[10px] text-slate-400 font-mono" id="walletUsdDisplay">$0.07 USDT</div>
+                            </div>
+                        </div>
+
+                        <div class="pt-2 border-t border-slate-700 flex justify-between text-[11px] text-slate-300">
+                            <span>Conversion: 100 Coins = Rs 2.00 PKR</span>
+                            <span class="text-emerald-400 font-bold">Min: 25,000 Coins (Rs 500)</span>
+                        </div>
+                    </div>
+
+                    <!-- Cashout Request Form -->
+                    <div class="clean-card rounded-3xl p-5 space-y-3.5">
+                        <h3 class="font-bold text-xs text-slate-900 uppercase tracking-wider">Select Withdrawal Method</h3>
+                        
+                        <div class="grid grid-cols-2 gap-2">
+                            <button type="button" onclick="setGateway('Easypaisa', this)" class="gw-btn active py-2.5 px-3 rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center space-x-2">
+                                <i class="fa-solid fa-mobile-screen"></i>
+                                <span>Easypaisa</span>
+                            </button>
+                            <button type="button" onclick="setGateway('JazzCash', this)" class="gw-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs flex items-center space-x-2">
+                                <i class="fa-solid fa-bolt"></i>
+                                <span>JazzCash</span>
+                            </button>
+                            <button type="button" onclick="setGateway('SadaPay', this)" class="gw-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs flex items-center space-x-2">
+                                <i class="fa-solid fa-credit-card"></i>
+                                <span>SadaPay</span>
+                            </button>
+                            <button type="button" onclick="setGateway('Binance (USDT)', this)" class="gw-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs flex items-center space-x-2">
+                                <i class="fa-brands fa-bitcoin"></i>
+                                <span>Binance (USDT)</span>
+                            </button>
+                        </div>
+
+                        <form onsubmit="handleCashout(event)" class="space-y-3 pt-2">
+                            <div>
+                                <label class="text-[10px] text-slate-500 font-bold block mb-1" id="wAccountLabel">Easypaisa Mobile Number (03XX-XXXXXXX):</label>
+                                <input type="text" id="wAccount" required placeholder="e.g. 03001234567" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-slate-500 font-bold block mb-1">Account Title (Full Name):</label>
+                                <input type="text" id="wName" required placeholder="e.g. Muhammad Ali" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800">
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-center mb-1">
+                                    <label class="text-[10px] text-slate-500 font-bold block">Coins to Withdraw:</label>
+                                    <button type="button" onclick="maxCoins()" class="text-[10px] text-emerald-600 font-bold hover:underline">Max Available</button>
+                                </div>
+                                <input type="number" id="wCoins" required min="25000" placeholder="Min 25,000 Coins (Rs 500)" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2.5 text-xs text-slate-800 font-mono">
+                            </div>
+
+                            <button type="submit" class="w-full py-3 gradient-emerald-btn text-white font-bold text-xs rounded-xl shadow-lg mt-2">
+                                Submit Cashout Request
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Withdrawal History -->
+                    <div class="clean-card rounded-3xl p-5 space-y-3">
+                        <h4 class="font-bold text-xs text-slate-900">Recent Cashout Requests</h4>
+                        <div class="space-y-2" id="walletHistoryList">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ============================================================== -->
+                <!-- TAB 5: SUPERUSER ADMIN PANEL -->
+                <!-- ============================================================== -->
+                <section id="tab-admin" class="space-y-4 hidden">
+                    
+                    <div class="bg-gradient-to-br from-slate-900 to-slate-800 text-white rounded-3xl p-5 shadow-lg">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 px-3 py-1 rounded-full border border-emerald-500/30">
+                                <i class="fa-solid fa-lock mr-1"></i> Superuser Controls
+                            </span>
+                            <span class="text-xs font-mono text-slate-300">Admin Mode Active</span>
+                        </div>
+                        <h2 class="text-lg font-black tracking-tight mt-1">Platform Admin Dashboard</h2>
+                        <p class="text-xs text-slate-400 mt-1">
+                            Configure monetization economics, manage 10+ Ad Network URLs, and monitor fraud.
+                        </p>
+                    </div>
+
+                    <!-- 70/30 Profit Calculator -->
+                    <div class="clean-card rounded-3xl p-5 space-y-3">
+                        <h3 class="font-bold text-xs text-slate-900 flex justify-between items-center">
+                            <span><i class="fa-solid fa-calculator text-emerald-600 mr-1.5"></i> 70/30 Revenue Split Calculator</span>
+                            <span class="text-[10px] text-emerald-600 font-bold">Live Math</span>
+                        </h3>
+                        <div class="grid grid-cols-2 gap-3 text-xs">
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-1">Ad Network CPM ($/1000)</label>
+                                <input type="number" id="calcCpm" step="0.1" value="2.5" oninput="recalcAdmin()" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-1">Coin-to-PKR (100 Coins)</label>
+                                <input type="number" id="calcRate" step="0.5" value="2.0" oninput="recalcAdmin()" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-slate-900 font-mono">
+                            </div>
+                        </div>
+
+                        <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 space-y-1.5 text-xs">
+                            <div class="flex justify-between">
+                                <span class="text-slate-600">10,000 Impressions Gross Rev:</span>
+                                <strong class="text-slate-900 font-mono" id="admGross">$25.00 (Rs 6,950)</strong>
+                            </div>
+                            <div class="flex justify-between text-emerald-700 font-bold">
+                                <span>Admin Profit (70%):</span>
+                                <strong class="font-mono" id="admAdminShare">$17.50 (Rs 4,865)</strong>
+                            </div>
+                            <div class="flex justify-between text-amber-700 font-bold">
+                                <span>User Payout (30%):</span>
+                                <strong class="font-mono" id="admUserShare">$7.50 (Rs 2,085)</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 10+ Ad Network Direct Link Manager -->
+                    <div class="clean-card rounded-3xl p-5 space-y-3">
+                        <span class="text-xs font-bold text-slate-900 block"><i class="fa-solid fa-link text-emerald-600 mr-1"></i> Configure Your 10+ Ad Network URLs:</span>
+                        <p class="text-[11px] text-slate-500">Paste your direct SmartLinks from Adsterra, Monetag, HilltopAds, and CPALead below:</p>
+                        
+                        <div class="space-y-2 text-xs">
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-0.5 font-bold">Server 1: Adsterra Direct Link #1</label>
+                                <input type="text" id="cfgAdsterraUrl1" value="https://beta.adsterra.com/direct-link-1" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-[11px] text-slate-800 font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-0.5 font-bold">Server 2: Monetag SmartLink #1</label>
+                                <input type="text" id="cfgMonetagUrl1" value="https://monetag.com/smartlink-1" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-[11px] text-slate-800 font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-0.5 font-bold">Server 3: HilltopAds Direct URL</label>
+                                <input type="text" id="cfgHilltopUrl" value="https://hilltopads.com/direct-smartlink" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-[11px] text-slate-800 font-mono">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-slate-500 block mb-0.5 font-bold">Server 4: CPALead Smart Offer URL</label>
+                                <input type="text" id="cfgCpaleadUrl" value="https://fasttracklink.com/offerwall-demo" class="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 text-[11px] text-slate-800 font-mono">
+                            </div>
+                        </div>
+
+                        <button onclick="saveAffiliateLinks()" class="w-full py-2.5 gradient-emerald-btn text-white font-bold text-xs rounded-xl shadow">
+                            Save All 10 Ad Network URLs
+                        </button>
+                    </div>
+
+                    <!-- Anti-Fraud IP Ban -->
+                    <div class="clean-card rounded-3xl p-5 space-y-3 border-rose-200">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <h4 class="font-bold text-xs text-slate-900">Anti-Fraud Protection</h4>
+                                <span class="text-[10px] text-slate-500">Tracked User IP: <strong class="text-rose-600 font-mono">182.185.142.12</strong></span>
+                            </div>
+                            <button onclick="banUser()" class="px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs shadow transition">
+                                1-Click Ban
+                            </button>
+                        </div>
+                    </div>
+
+                </section>
+
+            </main>
+
+            <!-- BOTTOM NAVIGATION BAR -->
+            <nav class="absolute bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 py-2 px-3 flex justify-around items-center z-40">
+                <button onclick="nav('ads', this)" id="nav-btn-ads" class="flex flex-col items-center text-[10px] font-black text-emerald-600 transition">
+                    <i class="fa-solid fa-circle-play text-lg mb-1"></i>
+                    <span>Watch Ads</span>
+                </button>
+                <button onclick="nav('apps', this)" id="nav-btn-apps" class="flex flex-col items-center text-[10px] font-bold text-slate-400 hover:text-slate-800 transition">
+                    <i class="fa-solid fa-download text-lg mb-1"></i>
+                    <span>Install Apps</span>
+                </button>
+                <button onclick="nav('refer', this)" id="nav-btn-refer" class="flex flex-col items-center text-[10px] font-bold text-slate-400 hover:text-slate-800 transition">
+                    <i class="fa-solid fa-user-plus text-lg mb-1"></i>
+                    <span>Refer</span>
+                </button>
+                <button onclick="nav('wallet', this)" id="nav-btn-wallet" class="flex flex-col items-center text-[10px] font-bold text-slate-400 hover:text-slate-800 transition">
+                    <i class="fa-solid fa-wallet text-lg mb-1"></i>
+                    <span>Wallet</span>
+                </button>
+                <button onclick="nav('admin', this)" id="nav-btn-admin" class="flex flex-col items-center text-[10px] font-bold text-slate-400 hover:text-slate-800 transition">
+                    <i class="fa-solid fa-gear text-lg mb-1"></i>
+                    <span>Admin</span>
+                </button>
+            </nav>
+
+            <!-- ============================================================== -->
+            <!-- REAL IN-APP REWARDED VIDEO PLAYER & ANTI-CHEAT MODAL -->
+            <!-- ============================================================== -->
+            <div id="videoModal" class="hidden absolute inset-0 z-50 bg-black/90 backdrop-blur-md flex flex-col items-center justify-center p-4">
+                <div class="bg-white rounded-3xl p-5 max-w-xs w-full text-center shadow-2xl relative">
+                    
+                    <!-- Tab Focus Warning Notice (Active when user clicks away) -->
+                    <div id="tabWarning" class="hidden mb-3 p-2 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-[10px] font-bold flex items-center justify-center space-x-1">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <span>Window Inactive! Timer Paused.</span>
+                    </div>
+
+                    <!-- In-App Video Viewport Frame -->
+                    <div class="w-full h-36 bg-slate-950 rounded-2xl relative overflow-hidden flex flex-col items-center justify-center text-white mb-3">
+                        <div class="absolute top-2 left-2 bg-black/60 px-2 py-0.5 rounded text-[9px] font-mono flex items-center space-x-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping"></span>
+                            <span>REWARDED VIDEO AD</span>
+                        </div>
+                        <i class="fa-solid fa-circle-play text-4xl text-emerald-400 animate-pulse"></i>
+                        <span class="text-[11px] font-bold mt-2 text-slate-300" id="videoAdNetworkName">Adsterra SmartLink Stream</span>
+                    </div>
+
+                    <!-- Countdown Bar -->
+                    <div class="space-y-1 mb-3">
+                        <div class="flex justify-between text-xs font-bold text-slate-700">
+                            <span>Verifying Ad View...</span>
+                            <span class="font-mono text-emerald-600" id="videoTimerText">15s</span>
+                        </div>
+                        <div class="w-full bg-slate-100 rounded-full h-2">
+                            <div id="videoProgressBar" class="bg-emerald-600 h-2 rounded-full transition-all duration-1000" style="width: 0%"></div>
+                        </div>
+                    </div>
+
+                    <p class="text-[11px] text-slate-500 leading-relaxed mb-4">
+                        Please keep this screen open. The reward button enables only after full viewability is confirmed.
+                    </p>
+
+                    <button id="videoClaimBtn" onclick="finishClaimAd()" disabled class="w-full py-3 rounded-2xl font-black text-xs bg-slate-100 text-slate-400 cursor-not-allowed transition">
+                        Watching Ad (15s)...
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- LUCKY SPIN WHEEL MODAL -->
+            <!-- ============================================================== -->
+            <div id="spinModal" class="hidden absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-4">
+                <div class="bg-white rounded-3xl p-5 max-w-xs w-full text-center shadow-2xl relative space-y-3">
+                    <button onclick="closeSpinModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-700 text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <div class="text-center">
+                        <h3 class="font-black text-base text-slate-900">🎡 Lucky Spin &amp; Win</h3>
+                        <p class="text-[10px] text-slate-500">Watch 1 ad to unlock 1 lucky spin!</p>
+                    </div>
+
+                    <!-- Wheel Canvas Container -->
+                    <div class="relative w-56 h-56 mx-auto flex items-center justify-center">
+                        <!-- Pointer -->
+                        <div class="absolute -top-2 z-20 text-rose-600 text-xl filter drop-shadow">
+                            <i class="fa-solid fa-location-pin"></i>
+                        </div>
+                        <canvas id="wheelCanvas" width="220" height="220" class="rounded-full shadow-lg wheel-spin border-4 border-amber-300"></canvas>
+                    </div>
+
+                    <div id="spinStatus" class="text-xs font-bold text-slate-700 h-5">
+                        Ready to spin!
+                    </div>
+
+                    <button id="btnSpinAction" onclick="handleSpinAdClick()" class="w-full py-3 rounded-2xl font-black text-xs gradient-gold-btn text-white shadow-lg active:scale-95 transition">
+                        Watch 15s Ad &amp; Spin 🎡
+                    </button>
+                </div>
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- SCRATCH & WIN MODAL -->
+            <!-- ============================================================== -->
+            <div id="scratchModal" class="hidden absolute inset-0 z-50 bg-black/80 backdrop-blur-md flex flex-col items-center justify-center p-4">
+                <div class="bg-white rounded-3xl p-5 max-w-xs w-full text-center shadow-2xl relative space-y-3">
+                    <button onclick="closeScratchModal()" class="absolute top-3 right-3 text-slate-400 hover:text-slate-700 text-sm">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+
+                    <div class="text-center">
+                        <h3 class="font-black text-base text-slate-900">🎟️ Lucky Scratch Card</h3>
+                        <p class="text-[10px] text-slate-500">Watch 1 ad to scratch &amp; reveal surprise coins!</p>
+                    </div>
+
+                    <!-- Scratch Box -->
+                    <div id="scratchCardBox" class="w-56 h-36 mx-auto bg-gradient-to-tr from-amber-400 to-amber-200 rounded-2xl flex flex-col items-center justify-center text-slate-900 border-2 border-dashed border-amber-500 relative cursor-pointer active:scale-95 transition" onclick="scratchReveal()">
+                        <i class="fa-solid fa-gift text-3xl text-amber-800 mb-1"></i>
+                        <span class="text-xs font-black text-amber-900" id="scratchCardText">Tap After Watching Ad</span>
+                        <span class="text-[10px] text-amber-800 font-bold" id="scratchPrizeText">Prize: Hidden</span>
+                    </div>
+
+                    <button id="btnScratchAction" onclick="handleScratchAdClick()" class="w-full py-3 rounded-2xl font-black text-xs gradient-emerald-btn text-white shadow-lg active:scale-95 transition">
+                        Watch 15s Ad &amp; Unlock Card 🎟️
+                    </button>
+                </div>
+            </div>
+
+            <!-- BAN SCREEN OVERLAY -->
+            <div id="banScreen" class="hidden absolute inset-0 z-50 bg-white/98 flex flex-col items-center justify-center p-6 text-center">
+                <div class="w-16 h-16 rounded-2xl bg-rose-100 text-rose-600 flex items-center justify-center text-3xl mb-3">
+                    <i class="fa-solid fa-user-slash"></i>
+                </div>
+                <h3 class="text-xl font-black text-slate-900 mb-1">Account Suspended</h3>
+                <p class="text-xs text-slate-500 max-w-xs mb-5">
+                    Your account was flagged by the Anti-Fraud engine due to proxy/VPN usage or rapid clicking.
+                </p>
+                <button onclick="unbanUser()" class="text-xs text-emerald-600 font-bold underline">
+                    [Admin Demo: Unban Account]
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- RICH ARTICLE READER MODAL (SEO Content Presentation) -->
+    <!-- ============================================================== -->
+    <div id="articleReaderModal" class="hidden fixed inset-0 z-50 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] flex flex-col overflow-hidden shadow-2xl relative">
+            
+            <!-- Modal Header -->
+            <div class="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+                <div class="flex items-center space-x-2">
+                    <span id="artModalCategory" class="text-[10px] font-black uppercase tracking-wider bg-emerald-100 text-emerald-800 px-2.5 py-0.5 rounded-full">Guide</span>
+                    <span id="artModalReadTime" class="text-xs text-slate-400 font-mono">4 min read</span>
+                </div>
+                <button onclick="closeArticleModal()" class="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Content (Scrollable) -->
+            <div class="p-6 overflow-y-auto space-y-5 text-slate-700 text-xs sm:text-sm leading-relaxed" id="artModalBody">
+                <!-- Dynamically Populated -->
+            </div>
+
+            <!-- Modal Sticky Footer with CTA -->
+            <div class="p-4 bg-slate-50 border-t border-slate-100 flex justify-between items-center">
+                <span class="text-xs font-bold text-slate-600">Start Earning Right Now:</span>
+                <button onclick="launchAppFromArticle()" class="gradient-emerald-btn text-white px-5 py-2.5 rounded-xl font-black text-xs shadow-md">
+                    🚀 Open Web App
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================== -->
+    <!-- LOGIC & ENGINE JAVASCRIPT -->
+    <!-- ============================================================== -->
+    <script>
+        // State
+        let coins = 1000;
+        let adsWatched = 0;
+        let currMode = 'PKR';
+        let pendingReward = 0;
+        let isTabActive = true;
+        let timerInterval = null;
+        let timerRemaining = 15;
+        let isSpinUnlocked = false;
+        let isScratchUnlocked = false;
+        let spinPrize = 0;
+
+        // 10 Ad Network Servers
+        const adNetworks = [
+            { id: 1, name: "Adsterra Server 1", reward: 15, tag: "Smartlink Direct", icon: "fa-bolt", color: "text-amber-500", bg: "bg-amber-50" },
+            { id: 2, name: "Monetag SmartLink", reward: 15, tag: "CPA High CPM", icon: "fa-fire", color: "text-rose-500", bg: "bg-rose-50" },
+            { id: 3, name: "HilltopAds Direct", reward: 18, tag: "Video Slider", icon: "fa-rocket", color: "text-purple-500", bg: "bg-purple-50" },
+            { id: 4, name: "CPALead QuickLink", reward: 20, tag: "Instant Microtask", icon: "fa-gem", color: "text-emerald-500", bg: "bg-emerald-50" },
+            { id: 5, name: "Unity Rewarded", reward: 22, tag: "Gaming Video", icon: "fa-play", color: "text-blue-500", bg: "bg-blue-50" },
+            { id: 6, name: "Start.io Rewarded", reward: 20, tag: "Mobile Interstitial", icon: "fa-tv", color: "text-indigo-500", bg: "bg-indigo-50" },
+            { id: 7, name: "TimeWall Stream", reward: 25, tag: "High Yield Task", icon: "fa-circle-check", color: "text-yellow-600", bg: "bg-yellow-50" },
+            { id: 8, name: "PropellerAds Pop", reward: 16, tag: "Direct Smart", icon: "fa-bullhorn", color: "text-sky-500", bg: "bg-sky-50" },
+            { id: 9, name: "Monlix Rewarded", reward: 25, tag: "Offerwall Feed", icon: "fa-layer-group", color: "text-teal-500", bg: "bg-teal-50" },
+            { id: 10, name: "MyLead FastCPA", reward: 20, tag: "Mobile Lead", icon: "fa-award", color: "text-orange-500", bg: "bg-orange-50" }
+        ];
+
+        // Real CPI Affiliate Apps
+        const cpiApps = [
+            { id: 101, title: "Binance Crypto App", desc: "Install & complete KYC signup", reward: 1800, adminPayout: "$1.20 USD", icon: "fa-coins", bg: "bg-yellow-500", url: "https://accounts.binance.com" },
+            { id: 102, title: "Alibaba.com B2B", desc: "Install & browse marketplace 2 mins", reward: 800, adminPayout: "$0.60 USD", icon: "fa-bag-shopping", bg: "bg-orange-500", url: "https://www.alibaba.com" },
+            { id: 103, title: "TikTok Lite Rewards", desc: "Download & watch 3 viral videos", reward: 600, adminPayout: "$0.45 USD", icon: "fa-music", bg: "bg-pink-600", url: "https://www.tiktok.com" },
+            { id: 104, title: "Opera GX Mobile", desc: "Install & set default browser", reward: 1100, adminPayout: "$0.85 USD", icon: "fa-globe", bg: "bg-red-600", url: "https://www.opera.com/gx" },
+            { id: 105, title: "Ludo Star 2 Classic", desc: "Install & win your first match", reward: 950, adminPayout: "$0.70 USD", icon: "fa-dice", bg: "bg-purple-600", url: "https://play.google.com" }
+        ];
+
+        const history = [
+            { id: "WID-901", method: "Easypaisa", acc: "0300-8472911", name: "Ali Raza", pkr: 500, coins: 25000, status: "Approved" },
+            { id: "WID-882", method: "JazzCash", acc: "0321-4910283", name: "Ali Raza", pkr: 700, coins: 35000, status: "Approved" }
+        ];
+
+        // Wheel Segments
+        const wheelPrizes = [10, 25, 50, 100, 15, 30, 75, 20];
+        const wheelColors = ['#059669', '#d97706', '#2563eb', '#7c3aed', '#10b981', '#f59e0b', '#3b82f6', '#8b5cf6'];
+
+        // Articles Data
+        const articlesDatabase = {
+            1: {
+                category: "Ad Watching Strategy",
+                readTime: "4 min read",
+                title: "Ghar Baithe Mobile Se Rozana Rs 500 - Rs 1,500 Kaise Kamayein? (2026 Complete Guide)",
+                author: "Muhammad Bilal • Senior Ad Monetization Architect",
+                date: "Updated Today",
+                content: `
+                    <p class="font-bold text-slate-900 text-sm">Pakistan mein mehngai ke is daur mein agar aapke paas ek 4G smartphone aur internet connection hai, to aap rozana part-time ads dekh kar aur simple micro-tasks mukammal karke ba-asani mahana Rs 15,000 se Rs 35,000 tak kama sakte hain.</p>
+                    
+                    <h3 class="text-base font-black text-slate-900 mt-4">1. 150 Rewarded Ads Ka Rozana Formula</h3>
+                    <p>EarnHub Pro aapko 10 high-speed servers (Adsterra, Monetag, HilltopAds waghera) deta hai. Har server par aapko rozana 15 se 25 ads milte hain:</p>
+                    <ul class="list-disc pl-5 space-y-1 my-2">
+                        <li>1 ad dekhne mein sirf 15 seconds lagte hain.</li>
+                        <li>Agar aap rozana 100 ads dekhte hain, to lagbhag 30 se 40 minute lagte hain.</li>
+                        <li>Isse aapko rozana <strong>1,500 se 2,500 Coins (Rs 30 se Rs 50 PKR)</strong> guaranteed milte hain.</li>
+                    </ul>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">2. CPI App Installs: Asal Munafay Ki Chaabi</h3>
+                    <p>Sirf ads dekhne ke sath sath agar aap rozana sirf <strong>2 sponsored apps</strong> (jaise Binance, TikTok, ya Games) install karein:</p>
+                    <ul class="list-disc pl-5 space-y-1 my-2">
+                        <li>Har app install par <strong>+1,000 se +1,800 Coins (Rs 20 se Rs 36 PKR)</strong> milte hain.</li>
+                        <li>2 apps install karne par aapko rozana <strong>Rs 60 se Rs 70 PKR</strong> extra milte hain.</li>
+                    </ul>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">3. Lucky Spin Wheel & Referral Income</h3>
+                    <p>EarnHub Pro par rozana 5 Lucky Spins milte hain jahan aapko 100 coins tak ka jackpot mil sakta hai. Aur agar aap apne referral link se 10 doston ko invite karte hain, to unki kamai ka <strong>10% lifetime commission</strong> seedha aapke wallet mein automatic jama hota rahega!</p>
+
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-2xl my-4 text-emerald-900 font-bold">
+                        💡 Mahana Kamai Ka Khulasa: <br>
+                        Ads: Rs 1,500 + Apps: Rs 2,100 + Spin: Rs 600 + 10 Referrals: Rs 4,500 = <span class="text-emerald-700 text-base">Rs 8,700 se Rs 15,000+ PKR Har Mahine!</span>
+                    </div>
+                `
+            },
+            2: {
+                category: "Withdrawal Tutorial",
+                readTime: "3 min read",
+                title: "Easypaisa aur JazzCash Par Instant Withdrawal Kaise Hasil Karein?",
+                author: "Ali Raza • Finance & Compliance Lead",
+                date: "Updated Today",
+                content: `
+                    <p class="font-bold text-slate-900 text-sm">Duniya ki aksar earning apps Pakistani users ko isliye tang karti hain kyunke woh sirf PayPal ya foreign bank accounts support karti hain. EarnHub Pro ko khas tor par Pakistan ke local mobile wallets ke sath integrate kiya gaya hai.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">1. Minimum Withdrawal Limit</h3>
+                    <p>EarnHub Pro par minimum withdrawal threshold sirf <strong>25,000 Coins (Rs 500 PKR)</strong> hai. Jaise hi aapke wallet mein Rs 500 ho jayein, aap foran request laga sakte hain.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">2. Step-by-Step Cashout Ka Tareeqa</h3>
+                    <ol class="list-decimal pl-5 space-y-1 my-2">
+                        <li>App ke <strong>Wallet Tab</strong> mein jayein.</li>
+                        <li>Apna preferred method chunein: <strong>Easypaisa, JazzCash, SadaPay</strong> ya <strong>Binance USDT</strong>.</li>
+                        <li>Apna active mobile number aur account holder ka mukammal naam enter karein.</li>
+                        <li>Coins ki tadaad enter karein aur <strong>"Submit Cashout Request"</strong> button daba dein.</li>
+                    </ol>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">3. Payment Dispatch Ka Waqt</h3>
+                    <p>Tamam withdrawal requests automated verification ke baad din mein do martaba (dopahar 2 baje aur raat 10 baje) batch approve hoti hain aur <strong>15 minute ke andar</strong> seedha aapke account mein transfer ho jati hain.</p>
+
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-2xl my-4 text-blue-900 font-bold">
+                        🛡️ Zero Fee Policy: EarnHub Pro withdrawal par koi service fee ya tax deduct nahi karta. Pure 100% paise aapko milte hain!
+                    </div>
+                `
+            },
+            3: {
+                category: "Comparison & Reviews",
+                readTime: "5 min read",
+                title: "Top 5 Real Online Earning Apps in Pakistan 2026 (No Investment Required)",
+                author: "Editorial Tech Team",
+                date: "Updated Today",
+                content: `
+                    <p class="font-bold text-slate-900 text-sm">Internet par hazaron apps aisi hain jo shuru mein paise mangti hain (scam apps). Yahan humne 2026 ki 5 aisi genuine apps ka jaiza liya hai jo 100% free hain aur real payout karti hain:</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">1. EarnHub Pro (Rank #1 - Best for Pakistan)</h3>
+                    <p>Khas tor par Pakistani users ke liye tayar ki gayi platform. 10 Ad networks, CPI apps, daily lucky spin aur sabse ahem baat: <strong>Direct Easypaisa & JazzCash</strong> support with minimum Rs 500 limit.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">2. Freecash.com (Rank #2 - Best Worldwide)</h3>
+                    <p>International market mein sabse badi platform hai. Payouts boht high hain, lekin Pakistan mein PayPal na hone ki wajah se crypto (Litecoin/USDT) mein withdraw karna padta hai.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">3. Swagbucks (Rank #3)</h3>
+                    <p>Duniya ki sabse purani platform hai. Surveys aur videos deti hai, lekin Pakistan ke users ke liye surveys boht kam qualify hote hain.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">4. Toloka Yandex (Rank #4)</h3>
+                    <p>Micro-tasking platform hai (pictures categorize karna, road signs dekhna). Earning theek hai lekin withdrawal Payoneer par aata hai jisme bank transfer fee lagti hai.</p>
+
+                    <div class="bg-purple-50 border border-purple-200 p-4 rounded-2xl my-4 text-purple-900 font-bold">
+                        🎯 Final Verdict: Agar aap direct mobile wallet (Easypaisa/JazzCash) mein rozana kamai chahte hain to EarnHub Pro sabse aasan aur fast option hai.
+                    </div>
+                `
+            },
+            4: {
+                category: "CPI High Earning Secret",
+                readTime: "4 min read",
+                title: "High-Paying CPI Tasks: Sirf 2 Apps Install Karke Rs 300 Kaise Kamayein?",
+                author: "Zain Hassan • CPA Lead Specialist",
+                date: "Updated Today",
+                content: `
+                    <p class="font-bold text-slate-900 text-sm">Aksar users sirf video ads dekh kar thak jate hain aur unhein lagta hai kamai slow hai. Lekin unhein yeh nahi pata ke CPA/CPI App Tasks mein ad dekhne se 10 guna zyada paisa hota hai!</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">1. CPA Lead aur Monlix Kya Hain?</h3>
+                    <p>Yeh international marketing networks hain. Jab koi company (jaise Binance, Daraz, Alibaba, ya Games) naye users chahti hai, to woh advertisers ko $0.50 se $2.00 USD per install pay karti hai.</p>
+
+                    <h3 class="text-base font-black text-slate-900 mt-4">2. Fast Verification Ka Secret Formula</h3>
+                    <ol class="list-decimal pl-5 space-y-1 my-2">
+                        <li>Hamesha Wi-Fi ya clean mobile data par task open karein (VPN hargiz na lagayein).</li>
+                        <li>Play Store se app download hone ke baad foran band na karein — <strong>kam az kam 2 minute tak app ko open rakhein</strong> aur register karein.</li>
+                        <li>Jaise hi tracking server confirm karta hai, aapke wallet mein automatically <strong>+1,800 Coins (Rs 36 PKR)</strong> credit ho jate hain.</li>
+                    </ol>
+
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl my-4 text-amber-900 font-bold">
+                        ⚡ Pro Tip: Rozana subah 10 baje naye tasks aate hain. Subah 2 tasks mukammal karne se aapka daily minimum target foran poora ho jata hai!
+                    </div>
+                `
+            }
+        };
+
+        // Anti-Cheat Tab Focus Listener
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden) {
+                isTabActive = false;
+                document.getElementById('tabWarning')?.classList.remove('hidden');
+            } else {
+                isTabActive = true;
+                document.getElementById('tabWarning')?.classList.add('hidden');
+            }
+        });
+
+        // Live Clock
+        setInterval(() => {
+            const d = new Date();
+            const el = document.getElementById('liveClock');
+            if (el) el.innerText = `${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
+        }, 1000);
+
+        function updateUI() {
+            const pkr = ((coins / 100) * 2.0).toFixed(2);
+            const usd = (pkr / 278.0).toFixed(2);
+
+            const hCoins = document.getElementById('headerCoins');
+            if (hCoins) hCoins.innerText = coins.toLocaleString();
+            const wCoins = document.getElementById('walletCoinsDisplay');
+            if (wCoins) wCoins.innerText = coins.toLocaleString();
+
+            const hCash = document.getElementById('headerCash');
+            const currBtn = document.getElementById('currBtnText');
+            if (currMode === 'PKR') {
+                if (hCash) hCash.innerText = `Rs ${pkr} PKR`;
+                if (currBtn) currBtn.innerText = "Currency: PKR";
+            } else {
+                if (hCash) hCash.innerText = `$${usd} USD`;
+                if (currBtn) currBtn.innerText = "Currency: USD";
+            }
+
+            const wPkr = document.getElementById('walletPkrDisplay');
+            const wUsd = document.getElementById('walletUsdDisplay');
+            if (wPkr) wPkr.innerText = `Rs ${pkr} PKR`;
+            if (wUsd) wUsd.innerText = `$${usd} USDT`;
+
+            const aCount = document.getElementById('adsCount');
+            if (aCount) aCount.innerText = adsWatched;
+            const bar = document.getElementById('adProgressBar');
+            if (bar) bar.style.width = Math.min((adsWatched / 150) * 100, 100) + "%";
+        }
+
+        function toggleCurrency() {
+            currMode = currMode === 'PKR' ? 'USD' : 'PKR';
+            updateUI();
+        }
+
+        function renderServers() {
+            const grid = document.getElementById('adServersGrid');
+            if (!grid) return;
+            grid.innerHTML = adNetworks.map(s => `
+                <div class="clean-card p-3.5 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-start mb-2">
+                            <div class="w-9 h-9 rounded-xl ${s.bg} ${s.color} flex items-center justify-center text-sm shadow-sm">
+                                <i class="fa-solid ${s.icon}"></i>
+                            </div>
+                            <span class="text-[9px] font-bold bg-slate-100 text-slate-600 px-2 py-0.5 rounded-full font-mono">
+                                25/25
+                            </span>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-900 leading-tight">${s.name}</h4>
+                        <span class="text-[10px] text-slate-500 mt-0.5 block">${s.tag} • 15s</span>
+                    </div>
+                    <button onclick="launchRewardedAd('${s.name}', ${s.reward})" class="mt-3 w-full py-2 bg-emerald-50 hover:bg-emerald-600 hover:text-white text-emerald-700 font-bold text-xs rounded-xl border border-emerald-200 transition">
+                        +${s.reward} Coins
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderApps() {
+            const container = document.getElementById('view-direct-apps');
+            if (!container) return;
+            container.innerHTML = cpiApps.map(a => `
+                <div class="clean-card p-4 rounded-2xl flex items-center justify-between">
+                    <div class="flex items-center space-x-3.5">
+                        <div class="w-12 h-12 rounded-2xl ${a.bg} flex items-center justify-center text-white text-xl shadow shrink-0">
+                            <i class="fa-solid ${a.icon}"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center space-x-1.5">
+                                <h4 class="font-bold text-xs text-slate-900">${a.title}</h4>
+                                <span class="text-[8px] font-bold bg-emerald-50 text-emerald-700 px-1.5 py-0.2 rounded border border-emerald-200">AFFILIATE CPA</span>
+                            </div>
+                            <p class="text-[11px] text-slate-500 mt-0.5">${a.desc}</p>
+                            <div class="flex items-center space-x-2 mt-1">
+                                <span class="text-[10px] text-amber-600 font-bold">+${a.reward} Coins 🪙</span>
+                                <span class="text-[9px] text-slate-400">| Admin Cut: <strong class="text-emerald-700">${a.adminPayout}</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="openAffiliateTask('${a.url}', ${a.reward})" class="gradient-emerald-btn text-white font-bold text-xs px-3.5 py-2.5 rounded-xl shadow shrink-0 ml-2">
+                        Install 📥
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function renderHistory() {
+            const list = document.getElementById('walletHistoryList');
+            if (!list) return;
+            list.innerHTML = history.map(w => `
+                <div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200 flex justify-between items-center text-xs">
+                    <div>
+                        <strong class="text-slate-900">${w.method}</strong>
+                        <span class="text-[10px] text-slate-500 block">${w.acc} • ${w.name}</span>
+                    </div>
+                    <div class="text-right">
+                        <strong class="text-emerald-700 font-mono block">Rs ${w.pkr}</strong>
+                        <span class="text-[9px] font-bold bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">${w.status}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Rewarded Video Ad Launcher
+        function launchRewardedAd(netName, reward, onCompleteCallback) {
+            pendingReward = reward;
+            timerRemaining = 15;
+            document.getElementById('videoAdNetworkName').innerText = netName;
+            document.getElementById('videoTimerText').innerText = timerRemaining + "s";
+            document.getElementById('videoProgressBar').style.width = "0%";
+            document.getElementById('videoModal').classList.remove('hidden');
+
+            const btn = document.getElementById('videoClaimBtn');
+            btn.disabled = true;
+            btn.innerText = `Watching Ad (${timerRemaining}s)...`;
+            btn.className = "w-full py-3 rounded-2xl font-black text-xs bg-slate-100 text-slate-400 cursor-not-allowed transition";
+
+            if (timerInterval) clearInterval(timerInterval);
+            timerInterval = setInterval(() => {
+                if (!isTabActive) return;
+
+                timerRemaining--;
+                document.getElementById('videoTimerText').innerText = timerRemaining + "s";
+                const pct = ((15 - timerRemaining) / 15) * 100;
+                document.getElementById('videoProgressBar').style.width = pct + "%";
+                btn.innerText = `Watching Ad (${timerRemaining}s)...`;
+
+                if (timerRemaining <= 0) {
+                    clearInterval(timerInterval);
+                    btn.disabled = false;
+                    btn.innerText = `Claim +${pendingReward} Coins!`;
+                    btn.className = "w-full py-3 rounded-2xl font-black text-xs gradient-emerald-btn text-white cursor-pointer shadow-lg transition active:scale-95";
+                    
+                    if (onCompleteCallback) {
+                        btn.onclick = () => {
+                            finishClaimAd();
+                            onCompleteCallback();
+                        };
+                    } else {
+                        btn.onclick = finishClaimAd;
+                    }
+                }
+            }, 1000);
+        }
+
+        function finishClaimAd() {
+            coins += pendingReward;
+            adsWatched++;
+            updateUI();
+            document.getElementById('videoModal').classList.add('hidden');
+            showToast(`Verified! +${pendingReward} Coins added to your wallet!`);
+        }
+
+        function openAffiliateTask(url, reward) {
+            const trackedUrl = url + "?subid=Ali_Pak786&aff_id=EarnHubPro";
+            window.open(trackedUrl, '_blank');
+            coins += reward;
+            updateUI();
+            showToast(`CPA Task Verified: +${reward} Coins credited!`);
+        }
+
+        function simulatePostback() {
+            coins += 1200;
+            updateUI();
+            alert("POSTBACK 200 OK:\n\nOfferwall Server Callback Received!\nUser: Ali_Pak786\nCredited: +1,200 Coins\nAdmin Earned: $0.80 USD");
+        }
+
+        // Viewport & Mode Switcher
+        function setMode(mode) {
+            const landing = document.getElementById('landingView');
+            const articles = document.getElementById('articlesView');
+            const app = document.getElementById('viewportWrapper');
+            const shell = document.getElementById('appShell');
+            const bar = document.getElementById('phoneStatusBar');
+
+            const btnLand = document.getElementById('btn-mode-landing');
+            const btnArt = document.getElementById('btn-mode-articles');
+            const btnMob = document.getElementById('btn-mode-mobile');
+            const btnDsk = document.getElementById('btn-mode-desktop');
+
+            [btnLand, btnArt, btnMob, btnDsk].forEach(b => {
+                if (b) b.className = "px-3 py-1.5 rounded-lg text-slate-600 hover:text-slate-900 flex items-center space-x-1.5 transition";
+            });
+
+            if (mode === 'landing') {
+                landing.classList.remove('hidden');
+                articles.classList.add('hidden');
+                app.classList.add('hidden');
+                btnLand.className = "px-3 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm flex items-center space-x-1.5 transition";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (mode === 'articles') {
+                landing.classList.add('hidden');
+                articles.classList.remove('hidden');
+                app.classList.add('hidden');
+                btnArt.className = "px-3 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm flex items-center space-x-1.5 transition";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (mode === 'desktop') {
+                landing.classList.add('hidden');
+                articles.classList.add('hidden');
+                app.classList.remove('hidden');
+                shell.className = "w-full max-w-4xl bg-white rounded-3xl border border-slate-200 min-h-[860px] relative flex flex-col shadow-xl transition-all duration-300";
+                bar.classList.add('hidden');
+                btnDsk.className = "px-3 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm flex items-center space-x-1.5 transition";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else { // mobile
+                landing.classList.add('hidden');
+                articles.classList.add('hidden');
+                app.classList.remove('hidden');
+                shell.className = "w-full max-w-md phone-mockup bg-white min-h-[860px] relative flex flex-col overflow-hidden shadow-2xl transition-all duration-300";
+                bar.classList.remove('hidden');
+                btnMob.className = "px-3 py-1.5 rounded-lg bg-emerald-600 text-white shadow-sm flex items-center space-x-1.5 transition";
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function launchAppDirect() {
+            setMode('mobile');
+        }
+
+        function launchAppFromArticle() {
+            closeArticleModal();
+            setMode('mobile');
+        }
+
+        function scrollToCalculator() {
+            document.getElementById('earningCalculatorSection')?.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Live Earning Calculator
+        function updateCalculator() {
+            const ads = parseInt(document.getElementById('calcAdsSlider').value);
+            const apps = parseInt(document.getElementById('calcAppsSlider').value);
+
+            document.getElementById('calcAdsVal').innerText = `${ads} Ads / Day`;
+            document.getElementById('calcAppsVal').innerText = `${apps} Apps / Day`;
+
+            const dailyCoins = (ads * 15) + (apps * 1000);
+            const dailyPkr = ((dailyCoins / 100) * 2.0).toFixed(0);
+            const dailyUsd = (dailyPkr / 278.0).toFixed(2);
+
+            const monthlyPkr = (dailyPkr * 30).toLocaleString();
+
+            document.getElementById('calcDailyPkr').innerText = `Rs ${dailyPkr} PKR`;
+            document.getElementById('calcDailyUsd').innerText = `~$${dailyUsd} USD / Day`;
+            document.getElementById('calcMonthlyPkr').innerText = `Rs ${monthlyPkr} PKR`;
+        }
+
+        // Interactive Lucky Spin Wheel
+        function openSpinModal() {
+            document.getElementById('spinModal').classList.remove('hidden');
+            drawWheel();
+        }
+        function closeSpinModal() {
+            document.getElementById('spinModal').classList.add('hidden');
+        }
+
+        function drawWheel() {
+            const canvas = document.getElementById('wheelCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            const numSegments = wheelPrizes.length;
+            const arc = (2 * Math.PI) / numSegments;
+            const radius = canvas.width / 2;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            for (let i = 0; i < numSegments; i++) {
+                const angle = i * arc;
+                ctx.beginPath();
+                ctx.fillStyle = wheelColors[i % wheelColors.length];
+                ctx.moveTo(radius, radius);
+                ctx.arc(radius, radius, radius, angle, angle + arc);
+                ctx.fill();
+                ctx.stroke();
+
+                ctx.save();
+                ctx.fillStyle = '#ffffff';
+                ctx.font = 'bold 12px Plus Jakarta Sans';
+                ctx.translate(radius, radius);
+                ctx.rotate(angle + arc / 2);
+                ctx.textAlign = 'right';
+                ctx.fillText(`+${wheelPrizes[i]} 🪙`, radius - 15, 4);
+                ctx.restore();
+            }
+        }
+
+        function handleSpinAdClick() {
+            launchRewardedAd("Monetag Spin Reward Stream", 0, () => {
+                isSpinUnlocked = true;
+                const btn = document.getElementById('btnSpinAction');
+                btn.innerText = "SPIN THE WHEEL NOW! 🎯";
+                btn.className = "w-full py-3 rounded-2xl font-black text-xs gradient-emerald-btn text-white shadow-lg cursor-pointer active:scale-95 transition";
+                btn.onclick = spinTheWheel;
+                document.getElementById('spinStatus').innerText = "Ad watched! Click to Spin!";
+            });
+        }
+
+        function spinTheWheel() {
+            const canvas = document.getElementById('wheelCanvas');
+            const randomPrizeIndex = Math.floor(Math.random() * wheelPrizes.length);
+            spinPrize = wheelPrizes[randomPrizeIndex];
+
+            const degreesPerSegment = 360 / wheelPrizes.length;
+            const targetRotation = 360 * 5 + (360 - (randomPrizeIndex * degreesPerSegment) - (degreesPerSegment / 2));
+            canvas.style.transform = `rotate(${targetRotation}deg)`;
+
+            document.getElementById('spinStatus').innerText = "Spinning...";
+            document.getElementById('btnSpinAction').disabled = true;
+
+            setTimeout(() => {
+                coins += spinPrize;
+                updateUI();
+                document.getElementById('spinStatus').innerText = `🎉 WON +${spinPrize} COINS!`;
+                showToast(`Lucky Spin Win: +${spinPrize} Coins added!`);
+                setTimeout(() => {
+                    closeSpinModal();
+                    canvas.style.transform = `rotate(0deg)`;
+                    document.getElementById('btnSpinAction').disabled = false;
+                    document.getElementById('btnSpinAction').innerText = "Watch 15s Ad & Spin 🎡";
+                    document.getElementById('btnSpinAction').onclick = handleSpinAdClick;
+                }, 2000);
+            }, 4200);
+        }
+
+        // Scratch Card Modal
+        function openScratchModal() {
+            document.getElementById('scratchModal').classList.remove('hidden');
+            document.getElementById('scratchCardText').innerText = "Tap After Watching Ad";
+            document.getElementById('scratchPrizeText').innerText = "Prize: Hidden";
+            isScratchUnlocked = false;
+        }
+        function closeScratchModal() {
+            document.getElementById('scratchModal').classList.add('hidden');
+        }
+
+        function handleScratchAdClick() {
+            launchRewardedAd("Adsterra Scratch Reward Stream", 0, () => {
+                isScratchUnlocked = true;
+                document.getElementById('scratchCardText').innerText = "SCRATCH / TAP TO REVEAL!";
+                document.getElementById('scratchPrizeText').innerText = "Ready to uncover!";
+                document.getElementById('btnScratchAction').innerText = "Card Unlocked! Tap Card Above";
+            });
+        }
+
+        function scratchReveal() {
+            if (!isScratchUnlocked) {
+                alert("Please click 'Watch 15s Ad & Unlock Card' first!");
+                return;
+            }
+            const reward = [25, 50, 75, 100, 150][Math.floor(Math.random() * 5)];
+            coins += reward;
+            updateUI();
+            document.getElementById('scratchCardText').innerText = `🎉 WINNER!`;
+            document.getElementById('scratchPrizeText').innerText = `+${reward} Coins Credited!`;
+            showToast(`Scratch Bonus: +${reward} Coins!`);
+            isScratchUnlocked = false;
+            setTimeout(closeScratchModal, 2500);
+        }
+
+        // Article Modal Reader
+        function openArticleModal(id) {
+            const art = articlesDatabase[id];
+            if (!art) return;
+
+            document.getElementById('artModalCategory').innerText = art.category;
+            document.getElementById('artModalReadTime').innerText = art.readTime;
+            
+            const body = document.getElementById('artModalBody');
+            body.innerHTML = `
+                <div class="space-y-2 border-b border-slate-100 pb-4">
+                    <h2 class="text-xl sm:text-2xl font-black text-slate-900 leading-tight">${art.title}</h2>
+                    <div class="flex items-center space-x-3 text-xs text-slate-400">
+                        <span><i class="fa-solid fa-user-pen mr-1 text-emerald-600"></i> ${art.author}</span>
+                        <span>•</span>
+                        <span><i class="fa-solid fa-calendar-check mr-1 text-slate-400"></i> ${art.date}</span>
+                    </div>
+                </div>
+
+                <!-- Sponsored In-Article Ad Slot -->
+                <div class="bg-amber-50 border border-dashed border-amber-300 rounded-2xl p-2.5 flex items-center justify-between text-xs text-amber-800">
+                    <span class="font-bold flex items-center"><i class="fa-solid fa-fire mr-1.5"></i> Sponsored Banner Ad Slot (Monetag / Adsterra)</span>
+                    <span class="text-[9px] bg-white px-2 py-0.5 rounded font-mono font-bold">AD #302</span>
+                </div>
+
+                <div class="space-y-4 pt-1">
+                    ${art.content}
+                </div>
+            `;
+
+            document.getElementById('articleReaderModal').classList.remove('hidden');
+        }
+
+        function closeArticleModal() {
+            document.getElementById('articleReaderModal').classList.add('hidden');
+        }
+
+        function filterArticlesList() {
+            const query = document.getElementById('articleSearchInput').value.toLowerCase();
+            const items = document.querySelectorAll('.article-item');
+            items.forEach(it => {
+                const text = it.innerText.toLowerCase() + " " + (it.getAttribute('data-keywords') || '');
+                if (text.includes(query)) {
+                    it.classList.remove('hidden');
+                } else {
+                    it.classList.add('hidden');
+                }
+            });
+        }
+
+        // Subtabs
+        function switchAppTab(tab) {
+            if (tab === 'direct') {
+                document.getElementById('view-direct-apps').classList.remove('hidden');
+                document.getElementById('view-offerwalls').classList.add('hidden');
+                document.getElementById('btn-sub-direct').className = "flex-1 py-2 rounded-xl bg-white text-slate-900 shadow-sm transition";
+                document.getElementById('btn-sub-walls').className = "flex-1 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition";
+            } else {
+                document.getElementById('view-direct-apps').classList.add('hidden');
+                document.getElementById('view-offerwalls').classList.remove('hidden');
+                document.getElementById('btn-sub-walls').className = "flex-1 py-2 rounded-xl bg-white text-slate-900 shadow-sm transition";
+                document.getElementById('btn-sub-direct').className = "flex-1 py-2 rounded-xl text-slate-600 hover:text-slate-900 transition";
+            }
+        }
+
+        // Navigation
+        function nav(tab, btn) {
+            ['ads', 'apps', 'refer', 'wallet', 'admin'].forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('nav-btn-' + t).className = "flex flex-col items-center text-[10px] font-bold text-slate-400 hover:text-slate-800 transition";
+            });
+            document.getElementById('tab-' + tab).classList.remove('hidden');
+            btn.className = "flex flex-col items-center text-[10px] font-black text-emerald-600 transition";
+        }
+
+        // Payout Gateway
+        let selectedGw = 'Easypaisa';
+        function setGateway(name, btn) {
+            selectedGw = name;
+            document.querySelectorAll('.gw-btn').forEach(b => {
+                b.className = "gw-btn py-2.5 px-3 rounded-xl border border-slate-200 bg-slate-50 text-slate-700 font-bold text-xs flex items-center space-x-2";
+            });
+            btn.className = "gw-btn active py-2.5 px-3 rounded-xl border border-emerald-600 bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center space-x-2";
+            document.getElementById('wAccountLabel').innerText = name === 'Binance (USDT)' ? "Binance Pay ID / USDT TRC20" : `${name} Number (03XX-XXXXXXX)`;
+        }
+
+        function maxCoins() {
+            document.getElementById('wCoins').value = coins;
+        }
+
+        function handleCashout(e) {
+            e.preventDefault();
+            const amt = parseInt(document.getElementById('wCoins').value);
+            if (amt < 25000) return alert("Minimum withdrawal is 25,000 Coins (Rs 500 PKR)!");
+            if (amt > coins) return alert("Insufficient coins in your wallet!");
+
+            coins -= amt;
+            const pkr = (amt / 100) * 2.0;
+            history.unshift({
+                id: "WID-" + Math.floor(100 + Math.random() * 900),
+                method: selectedGw,
+                acc: document.getElementById('wAccount').value,
+                name: document.getElementById('wName').value,
+                pkr: pkr,
+                coins: amt,
+                status: "Pending"
+            });
+
+            updateUI();
+            renderHistory();
+            alert(`Withdrawal request submitted!\nAmount: Rs ${pkr}\nGateway: ${selectedGw}\nStatus: Pending Admin Approval`);
+            e.target.reset();
+        }
+
+        // Admin
+        function recalcAdmin() {
+            const cpm = parseFloat(document.getElementById('calcCpm').value) || 2.5;
+            const gross = (10000 / 1000) * cpm;
+            const grossPkr = gross * 278.0;
+
+            document.getElementById('admGross').innerText = `$${gross.toFixed(2)} (Rs ${grossPkr.toFixed(0)})`;
+            document.getElementById('admAdminShare').innerText = `$${(gross * 0.7).toFixed(2)} (Rs ${(grossPkr * 0.7).toFixed(0)})`;
+            document.getElementById('admUserShare').innerText = `$${(gross * 0.3).toFixed(2)} (Rs ${(grossPkr * 0.3).toFixed(0)})`;
+        }
+
+        function saveAffiliateLinks() {
+            showToast("All 10 Ad Network URLs saved successfully!");
+        }
+
+        function banUser() {
+            document.getElementById('banScreen').classList.remove('hidden');
+        }
+        function unbanUser() {
+            document.getElementById('banScreen').classList.add('hidden');
+            showToast("Account unbanned!");
+        }
+
+        function copyLink() {
+            navigator.clipboard.writeText(document.getElementById('refLink').value);
+            showToast("Referral link copied!");
+        }
+
+        function share(type) {
+            window.open(type === 'whatsapp' ? 'https://api.whatsapp.com' : 'https://t.me', '_blank');
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('liveToast');
+            document.getElementById('toastMsg').innerText = msg;
+            t.classList.remove('hidden');
+            setTimeout(() => { t.classList.add('hidden'); }, 3500);
+        }
+        function hideToast() { document.getElementById('liveToast').classList.add('hidden'); }
+
+        // Init
+        updateUI();
+        renderServers();
+        renderApps();
+        renderHistory();
+        recalcAdmin();
+        updateCalculator();
+    </script>
+</body>
+</html>
