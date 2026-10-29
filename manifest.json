@@ -1,0 +1,18 @@
+{
+  "name": "EarnHub Pro - Watch Ads & Install Apps",
+  "short_name": "EarnHub Pro",
+  "description": "Earn money online with multi-network rewarded video ads, CPI app installs, and 10% lifetime referral commissions.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' fill='%2310b981'><rect width='512' height='512' rx='128' fill='%23090d16'/><path d='M280 64L120 304h128l-32 144 176-240H264l16-64z' fill='%2310b981'/></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
