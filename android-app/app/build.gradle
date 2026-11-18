@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'com.earnhub.pro'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.earnhub.pro"
+        minSdk 24
+        targetSdk 35
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.webkit:webkit:1.12.1'
+
+    // 1. Google AdMob Official SDK (Banners 50dp Auto-Refresh + Rewarded Videos)
+    implementation 'com.google.android.gms:play-services-ads:23.6.0'
+
+    // 2. AppLovin MAX Official SDK (Mediation + Auto-Refresh Banners + Rewarded Videos)
+    implementation 'com.applovin:applovin-sdk:13.0.1'
+}
