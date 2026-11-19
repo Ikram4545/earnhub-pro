@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8FAFC"
+    android:orientation="vertical">
+
+    <!-- TOP 50dp FIXED STICKY AD BANNER (NO CLOSE BUTTON - 30s AUTO-REFRESH - 100% ADMIN REVENUE) -->
+    <FrameLayout
+        android:id="@+id/topBannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#FFFFFF"
+        android:elevation="2dp" />
+
+    <!-- MAIN APP WEBVIEW (LIGHT THEME EARNING ENGINE + GAMES + WALLET) -->
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- BOTTOM 50dp FIXED STICKY AD BANNER (NO CLOSE BUTTON - 30s AUTO-REFRESH - 100% ADMIN REVENUE) -->
+    <FrameLayout
+        android:id="@+id/bottomBannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp" />
+
+</LinearLayout>
